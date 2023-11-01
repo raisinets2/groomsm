@@ -7,6 +7,15 @@
 <body>
     <h1 id="dynamicMessage">Dynamic Message</h1>
     <p>Dear <span id="friendNamePlaceholder">[Friend's Name]</span>,</p>
+
+    <form action="response.html" method="GET">
+        <input type="hidden" id="friendName" name="friendName" value="">
+        <input type="submit" value="Yes" class="accept-button">
+    </form>
+    
+    <form action="index.html">
+        <input type="submit" value="No" class="decline-button">
+    </form>
     
     <script>
         // Get the friendName and dynamicMessage from URL parameters
@@ -15,7 +24,10 @@
 
         // Set the friendName in the placeholder
         document.getElementById("friendNamePlaceholder").textContent = friendName;
-        
+
+        // Set the friendName in the hidden input field
+        document.querySelector('form input[name="friendName"]').value = friendName;
+
         // Set the dynamicMessage
         document.getElementById("dynamicMessage").textContent = dynamicMessage;
 
