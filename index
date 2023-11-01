@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Will You Be My Groomsman?</title>
+</head>
+<body>
+    <h1>Will You Be My Groomsman?</h1>
+    <p>Dear [Friend's Name],</p>
+    <p>I am getting married, and I would be honored if you would be my groomsman. Will you accept this role?</p>
+
+    <form action="response.html">
+        <label for="response">Your Response:</label>
+        <select id="response" name="response">
+            <option value="accept">I accept!</option>
+            <option value="decline">I can't, sorry.</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
