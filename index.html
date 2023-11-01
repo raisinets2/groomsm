@@ -5,17 +5,19 @@
 </head>
 <body>
     <h1>Will You Be My Groomsman?</h1>
-    <p>Dear [Friend's Name],</p>
     <p>I am getting married, and I would be honored if you would be my groomsman. Will you accept this role?</p>
 
-    <form action="response.html">
-        <label for="response">Your Response:</label>
-        <select id="response" name="response">
-            <option value="accept">I accept!</option>
-            <option value="decline">I can't, sorry.</option>
-        </select>
+    <form action="response.html" method="GET">
+        <label for="friendName">Your Name:</label>
+        <input type="text" id="friendName" name="friendName" required>
+        <input type="hidden" id="submissionTime" name="submissionTime">
         <br>
         <input type="submit" value="Submit">
     </form>
+
+    <script>
+        // Capture the current timestamp in milliseconds when the page is opened
+        document.getElementById("submissionTime").value = Date.now();
+    </script>
 </body>
 </html>
