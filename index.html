@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Will You Be My Groomsman?</title>
+    <title>Chris Has an Important Question for You...</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <h1>Will You Be My Groomsman?</h1>
-    <p>Dear [Friend's Name],</p>
-    <p>I am getting married, and I would be honored if you would be my groomsman. Will you accept this role?</p>
-
-    <form action="response.html" method="GET">
+    <h1>Enter Your Name</h1>
+    <form action="dynamic-page.html" method="GET">
         <label for="friendName">Your Name:</label>
         <input type="text" id="friendName" name="friendName" required>
-        <input type="hidden" id="submissionTime" name="submissionTime">
-        <br>
         <input type="submit" value="Submit">
     </form>
 
     <script>
-        // Capture the current timestamp in milliseconds when the page is opened
-        document.getElementById("submissionTime").value = Date.now();
+        // Define a mapping of names to specific messages
+        var nameToMessage = {
+            "John": "John, you are an awesome friend!",
+            "Alice": "Alice, you mean the world to me!",
+            "Bob": "Bob, I couldn't do it without you!",
+            // Add more names and messages as needed
+        };
+
+        // When the form is submitted, set the message based on the entered name
+        document.querySelector("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            var friendName = document.getElementById("friendName").value;
+            var dynamicMessage = nameToMessage[friendName] || "Hello, friend!";
+            window.location.href = "dynamic-page.html?friendName=" + encodeURIComponent(friendName) + "&message=" + encodeURIComponent(dynamicMessage);
+        });
     </script>
 </body>
 </html>
