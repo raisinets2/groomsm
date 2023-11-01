@@ -4,7 +4,34 @@
     <title>Your Response</title>
 </head>
 <body>
-    <h1>Thank you for your response!</h1>
-    <p>Your response has been recorded. I appreciate your support and understanding.</p>
+    <h1>Thank you, [Friend's Name], for your response!</h1>
+    <p>Your response has been recorded.</p>
+
+    <script>
+        // Get the current timestamp in milliseconds
+        var currentTime = new Date().getTime();
+
+        // Get the timestamp passed as a URL parameter from the previous page
+        var submissionTime = parseInt(getParameterByName("submissionTime"));
+
+        // Calculate the time difference in seconds
+        var responseTimeInSeconds = (currentTime - submissionTime) / 1000;
+
+        // Display the response time
+        document.write("<p>Response time: " + responseTimeInSeconds + " seconds</p>");
+
+        // Function to retrieve URL query parameters
+        function getParameterByName(name, url) {
+            if (!url) {
+                url = window.location.href;
+            }
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
 </body>
 </html>
